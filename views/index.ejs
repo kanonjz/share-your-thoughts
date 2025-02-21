@@ -1,0 +1,15 @@
+<form action="/add" method="POST">
+    <textarea name="content" placeholder="What's on your mind?" required></textarea>
+    <button type="submit">Share</button>
+</form>
+
+<ul class="thoughts-list">
+    <% thoughts.forEach(thought => { %>
+        <li>
+            <p><%= thought.content %></p>
+            <form action="/delete/<%= thought.id %>" method="POST">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    <% }) %>
+</ul>
